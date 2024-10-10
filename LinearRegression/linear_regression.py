@@ -4,9 +4,9 @@ from utils.features import prepare_for_training
 class LinearRegression:
     def __init__(self,data,labels,polynomial_degree = 0,sinusoid_degree = 0,normalize_data=True):
         """
-        1. Preprocess the data
-        2. Get all the number of features
-        3. Initialize the parameter
+        1. preprocess the data
+        2. get all the number of features
+        3. initialize the parameter
         """
         (data_processed,
          features_mean, 
