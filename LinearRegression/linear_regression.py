@@ -2,12 +2,11 @@ import numpy as np
 from utils.features import prepare_for_training
 
 class LinearRegression:
-
     def __init__(self,data,labels,polynomial_degree = 0,sinusoid_degree = 0,normalize_data=True):
         """
         1. Preprocess the data
-        2. Get all the number of features first
-        3. Initialize the parameter matrix
+        2. Get all the number of features
+        3. Initialize the parameter
         """
         (data_processed,
          features_mean, 
@@ -25,14 +24,14 @@ class LinearRegression:
         
     def train(self,alpha,num_iterations = 500):
         """
-        Training module to perform gradient descent
+        Training to do gradient descent
         """
         cost_history = self.gradient_descent(alpha,num_iterations)
         return self.theta,cost_history
         
     def gradient_descent(self,alpha,num_iterations):
         """
-        When the actual module is iterated, num iterations are performed
+        Iterate num_iterations times and return loss history
         """
         cost_history = []
         for _ in range(num_iterations):
@@ -43,7 +42,7 @@ class LinearRegression:
         
     def gradient_step(self,alpha):    
         """
-        Gradient descent parameter updating method (Matrix operation)
+        Updating gradient descent parameter (Matrix operation)
         """
         num_examples = self.data.shape[0]
         prediction = LinearRegression.hypothesis(self.data,self.theta)
@@ -79,7 +78,7 @@ class LinearRegression:
         return self.cost_function(data_processed,labels)
     def predict(self,data):
         """
-        The regression results are obtained by using the trained parameter model and the prediction
+        Prediction Result
         """
         data_processed = prepare_for_training(data,
          self.polynomial_degree,
